@@ -1,4 +1,9 @@
-# Reproducible Research: Peer Assessment 1
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+---
 
 This is the R markdown file for the Peer Assessment 1 of Preproducible Research course.
 
@@ -25,7 +30,7 @@ StepsPerDay <- aggregate(steps ~ date, data = activityData, sum)
 hist(StepsPerDay$steps, main = "Total Steps For A Day", xlab = "Total Steps")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-2-1.png) 
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png) 
 
 ```r
 MeanStepsPerDay <- mean(StepsPerDay$steps)
@@ -45,7 +50,7 @@ AveStepsPerInterval <- aggregate(steps ~ interval, data = activityData, mean)
 with(AveStepsPerInterval, plot(interval, steps, type = 'l', xlab = "Interval", ylab = "Average Number of Steps across All Dates"))
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png) 
 
 ```r
 MaxStepsInterval <- AveStepsPerInterval[AveStepsPerInterval$steps == max(AveStepsPerInterval$steps), 1]
@@ -78,7 +83,7 @@ StepsPerDay_Imputed <- aggregate(steps ~ date, data = activityData_Imputed, sum)
 hist(StepsPerDay_Imputed$steps, main = "Total Steps For A Day", xlab = "Total Steps")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-5-1.png) 
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png) 
 
 ```r
 MeanStepsPerDay_Imputed <- mean(StepsPerDay_Imputed$steps)
@@ -108,6 +113,6 @@ with(AveStepsPerInterval_Imputed[AveStepsPerInterval_Imputed$weekday == "weekend
 with(AveStepsPerInterval_Imputed[AveStepsPerInterval_Imputed$weekday == "weekday", ], plot(interval, steps, type = 'l', xlab = "Interval", ylab = "Number of Steps", main = "weekday"))
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-6-1.png) 
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png) 
 
 From the two plots, it can be observed that the number of steps taken during weekend daytime (between 1000 and 2000) is higher than weekday daytime. This could be due to that participants perform more activities during weekends.
